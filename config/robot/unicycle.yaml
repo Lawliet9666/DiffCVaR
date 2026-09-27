@@ -1,0 +1,14 @@
+# @package _global_
+
+robot:
+  type: unicycle
+  radius: 0.3
+  vmax: 1.5
+  omega_max: 1.5707963267948966
+  ini_goal_dist: 6.0
+
+env:
+  reward:
+    potential_factor: 3.0
+    back_factor: 0.1
+    spin_factor: 4.5

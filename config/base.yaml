@@ -1,0 +1,10 @@
+seed: 0
+device: auto
+
+wandb_entity: ""
+wandb_project: diff_cvar
+wandb_interval: 10
+run_name: null
+save_dir: outputs/${env.name}/runs
+overwrite: false
+checkpoint: ""

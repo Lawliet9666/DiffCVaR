@@ -1,0 +1,22 @@
+build/
+devel/
+logs/
+wandb/
+*.bag
+# *.pt
+*.pth
+*.ckpt
+__pycache__/
+*.pyc
+
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+/trained_models/
+/results/
+/Python-RVO2/
+/outputs/
+/test/
+/tests/

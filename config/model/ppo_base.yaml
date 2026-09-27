@@ -1,0 +1,14 @@
+type: vanilla_ppo
+obs_dim: ${math:6+${env.obs_top_k}*6}
+act_dim: ${env.act_dim}
+
+actor:
+  hidden_dim: 256
+  hidden_dim2: 256
+  act: relu
+  action_std_init: 0.5
+
+critic:
+  hidden_dim: 256
+  hidden_dim2: 256
+  act: relu

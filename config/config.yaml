@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - env: social_nav_var_num
+  - robot: single_integrator
+  - model: ppo_base
+  - trainer: ppo
+  - _self_
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: outputs/hydra/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/hydra/multirun/${now:%Y-%m-%d_%H-%M-%S}
