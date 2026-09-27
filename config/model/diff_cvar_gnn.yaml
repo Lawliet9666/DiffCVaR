@@ -1,0 +1,52 @@
+type: diff_cvar_gnn
+robot_type: ${robot.type}
+history_len: 3
+obs_frame_dim: ${math:6+${env.humans.num_humans}*6}
+obs_dim: ${math:${model.history_len}*${model.obs_frame_dim}}
+
+actor:
+  # Policy network and exploration
+  hidden_dim: 256
+  control_hidden_dim: 256
+  scalar_hidden_dim: 256
+  act: relu
+  action_std_init: 0.5
+
+  # CVaR-CBF safety model
+  margin_base: ${env.safety_margin}
+  margin_extra_max: ${math:1.5*${robot.radius}+1.5*${env.humans.radius}+1.5*${env.safety_margin}}
+  alpha: 2.0
+  beta_min: 0.05
+  beta: 0.5  # Total risk budget across active QP top-k humans
+  lookahead_distance: 0.2
+
+  # Differentiable QP solver, reward, and diagnostics
+  qp_verbose: -1
+  qp_max_iter: 40
+  qp_eps: 1e-12
+  qp_not_improved_lim: 3
+  qp_check_q_spd: false
+  qp_slack_weight: 10.0
+  qp_residual_reward_weight: 0.03
+  qp_full_diagnostics: false
+  qp_obs_top_k: 3
+
+  # Human-motion GMM predictor
+  gmm_weights: [0.6, 0.2, 0.2]
+  gmm_stds: [0.1, 0.2, 0.2]
+  gmm_lateral_ratio: 0.3
+
+  # Sparse shared spatio-temporal graph encoder
+  graph_coordinate_frame: robot_body
+  graph_hidden_dim: 64
+  graph_latent_dim: 16
+  graph_layers: 3
+
+  # Input feature scaling
+  position_scale: ${env.farthest_dist}
+  velocity_scale: ${robot.v_max}
+
+critic:
+  hidden_dim: 256
+  hidden_dim2: 256
+  act: relu

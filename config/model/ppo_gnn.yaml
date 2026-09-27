@@ -1,0 +1,27 @@
+type: ppo_gnn
+robot_type: ${robot.type}
+history_len: 3
+obs_frame_dim: ${math:6+${env.humans.num_humans}*6}
+obs_dim: ${math:${model.history_len}*${model.obs_frame_dim}}
+
+actor:
+  # Policy network and exploration
+  hidden_dim: 256
+  control_hidden_dim: 256
+  act: relu
+  action_std_init: 0.5
+
+  # Sparse shared spatio-temporal graph encoder
+  graph_coordinate_frame: robot_body
+  graph_hidden_dim: 64
+  graph_latent_dim: 16
+  graph_layers: 3
+
+  # Input feature scaling
+  position_scale: ${env.farthest_dist}
+  velocity_scale: ${robot.v_max}
+
+critic:
+  hidden_dim: 256
+  hidden_dim2: 256
+  act: relu

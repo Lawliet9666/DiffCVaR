@@ -1,0 +1,31 @@
+total_timesteps: 20000000
+num_envs: 128
+ppo_impl: brax
+
+gamma: 0.99
+lam: 0.98
+normalize_advantages: true
+lr: 0.0001
+target_kl: 0.02
+use_target_kl_early_stop: true
+learning_rate_schedule: linear
+desired_kl: 0.01
+learning_rate_schedule_min_lr: 1.0e-6
+learning_rate_schedule_max_lr: 0.0
+adaptive_kl_factor: 1.5
+clip: 0.2
+ent_coef: 0.01
+vf_coef: 0.5
+value_clip: 0.0
+max_grad_norm: 0.5
+finite_check_interval: 10
+
+timesteps_per_batch: 4096
+n_updates_per_iteration: 4
+num_minibatches: 32
+use_init_weights: true
+
+eval_interval: 100
+eval_freq_timesteps: 0
+eval_episodes: 20
+max_checkpoints: 10

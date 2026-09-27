@@ -1,0 +1,15 @@
+defaults:
+  - base
+  - robot: unicycle
+  - env: crowd_dyn_var_num_env
+  - model: diff_cvar_gnn
+  - trainer: ppo
+  - _self_
+
+hydra:
+  job:
+    chdir: false
+  run:
+    dir: outputs/hydra/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/hydra/multirun/${now:%Y-%m-%d_%H-%M-%S}

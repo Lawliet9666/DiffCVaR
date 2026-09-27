@@ -1,0 +1,14 @@
+/test/
+/tests/
+outputs/
+__pycache__/
+*.pyc
+.DS_Store
+.pytest_cache/
+.hydra/
+*.log
+multirun/
+/wandb/
+/trained_models/
+data/**/eval_results.json
+data/**/visualize_ckpt_*/

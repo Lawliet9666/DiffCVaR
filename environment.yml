@@ -1,0 +1,14 @@
+name: diff_cvar_jax
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - hydra-core
+  - omegaconf
+  - imageio
+  - imageio-ffmpeg
+  - matplotlib
+  - tqdm
+  - wandb

@@ -1,0 +1,10 @@
+type: single_integrator
+radius: 0.3
+v_max: 1.5
+goal_tolerance: 0.3
+goal_min_distance: 8.0
+
+reward:
+  potential_factor: 2.0
+  back_factor: 0.0
+  spin_factor: 0.0

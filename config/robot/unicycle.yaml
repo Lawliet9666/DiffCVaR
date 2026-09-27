@@ -1,0 +1,11 @@
+type: unicycle
+radius: 0.3
+v_max: 1.5
+omega_max: 1.57
+goal_tolerance: 0.6
+goal_min_distance: 6.0
+
+reward:
+  potential_factor: 3.0
+  back_factor: 0.1
+  spin_factor: 4.5
