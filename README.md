@@ -126,3 +126,16 @@ trainer/          PPO rollout, update, evaluation, and checkpoints
 scripts/          Training and evaluation entrypoints
 ```
 
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{wang2026diffcvar,
+  title={DiffCVaR: Reinforcement Learning for Risk Adaptation via Differentiable CVaR Barrier Functions},
+  author={Wang, Xinyi and Kim, Taekyung and Hoxha, Bardh and Fainekos, Georgios and Panagou, Dimitra},
+  journal={IEEE Robotics and Automation Letters},
+  year={2026},
+  url={https://arxiv.org/abs/2605.21257}
+}
+```
